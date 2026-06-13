@@ -6,11 +6,14 @@ with sync_playwright() as playwright:
     page.goto('https://nikita-filonov.github.io/qa-automation-engineer-ui-course/#/auth/login')
 
     email_input = page.get_by_test_id('login-form-email-input').locator('input')
+    # Установка фокуса на поле ввода
     email_input.focus()
 
     for char in 'user@gmail.com':
-        page.keyboard.press(char, delay=300)
+        page.keyboard.type(char, delay=100)
+        # page.keyboard.press(char, delay=300)
 
+    # Выделение текста через Ctrl+A
     page.keyboard.press('ControlOrMeta+A')
 
 

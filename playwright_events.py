@@ -1,3 +1,4 @@
+# Обработка событий
 from playwright.sync_api import sync_playwright, Request, Response
 
 def log_request(request: Request):
@@ -17,4 +18,3 @@ with sync_playwright() as playwright:
     page.on('response', log_response)
 
     page.wait_for_timeout(5000)
-
